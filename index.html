@@ -3,112 +3,719 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>
-        Prahladha Reddy Ramireddy
-    </title>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown-light.min.css"
-        integrity="sha512-Pmhg2i/F7+5+7SsdoUqKeH7UAZoVMYb1sxGOoJ0jWXAEHP0XV2H4CITyK267eHWp2jpj7rtqWNkmEOw1tNyYpg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Prahladha Reddy Ramireddy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .markdown-body {
+        *, *::before, *::after {
             box-sizing: border-box;
-            min-width: 200px;
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 45px;
+            margin: 0;
+            padding: 0;
         }
 
-        @media (max-width: 767px) {
-            .markdown-body {
-                padding: 15px;
+        :root {
+            --primary: #2B5F8E;
+            --primary-dark: #1d4266;
+            --primary-light: #ebf4ff;
+            --text: #1a202c;
+            --text-muted: #4a5568;
+            --border: #e2e8f0;
+            --bg: #f7f9fc;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* ── Header ── */
+        .header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .header .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 0.875rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-sep {
+            color: var(--border);
+        }
+
+        .resume-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-size: 0.825rem;
+            font-weight: 600;
+            transition: background 0.15s;
+        }
+
+        .resume-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .resume-btn.outline {
+            background: var(--card-bg);
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+
+        .resume-btn.outline:hover {
+            background: var(--primary-light);
+        }
+
+        /* ── Section ── */
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 32px 40px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: var(--primary);
+            margin-bottom: 22px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        /* ── Overview ── */
+        .overview-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ── Experience ── */
+        .exp-item {
+            margin-bottom: 28px;
+        }
+
+        .exp-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 3px;
+        }
+
+        .exp-company {
+            font-size: 1.025rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .exp-badge {
+            font-size: 0.775rem;
+            color: var(--primary);
+            font-weight: 600;
+            background: var(--primary-light);
+            padding: 2px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .exp-role {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .exp-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .exp-highlights {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exp-highlights li {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            padding: 4px 0 4px 18px;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        .exp-highlights li::before {
+            content: '›';
+            position: absolute;
+            left: 4px;
+            color: var(--primary);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .exp-highlights a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .exp-highlights a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 24px 0;
+        }
+
+        /* ── Education ── */
+        .edu-institution {
+            font-size: 1.025rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .edu-degree {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .edu-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .edu-highlights {
+            list-style: none;
+            padding: 0;
+        }
+
+        .edu-highlights li {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            padding: 2px 0 2px 14px;
+            position: relative;
+        }
+
+        .edu-highlights li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* ── Skills ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 14px;
+        }
+
+        .skill-group {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+        }
+
+        .skill-group-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.775rem;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        /* ── Achievements ── */
+        .achievements-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .achievement {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 12px 16px;
+            background: var(--bg);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .achievement-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 120px;
+            flex-shrink: 0;
+        }
+
+        .achievement-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ── Projects ── */
+        .project-item {
+            margin-bottom: 22px;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .project-name a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .project-name a:hover {
+            text-decoration: underline;
+        }
+
+        .project-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .project-highlights {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-highlights li {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            padding: 3px 0 3px 18px;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        .project-highlights li::before {
+            content: '›';
+            position: absolute;
+            left: 4px;
+            color: var(--primary);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .project-highlights a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .project-highlights a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding: 10px 0 0;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .container {
+                padding: 16px 14px 40px;
+            }
+
+            .header {
+                padding: 24px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .section {
+                padding: 24px 20px;
+            }
+
+            .exp-header {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievement {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .achievement-label {
+                min-width: unset;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                font-size: 13px;
+            }
+
+            .container {
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .section,
+            .header {
+                box-shadow: none;
+                border-color: #ddd;
+                border-radius: 0;
+                margin-bottom: 12px;
+                padding: 20px;
+            }
+
+            .resume-links {
+                display: none;
             }
         }
     </style>
 </head>
 
 <body>
-    <article class="markdown-body">
-        <h1>Prahladha Reddy Ramireddy</h1>
-        <ul>
-        <li>Email: <a href="mailto:prahladhareddy001@gmail.com">prahladhareddy001@gmail.com</a></li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/prahladha-reddy-ramireddy">prahladha-reddy-ramireddy</a></li>
-        <li>GitHub: <a href="https://github.com/prahladhareddy">prahladhareddy</a></li>
-        </ul>
-        <h1>Overview</h1>
-        <p>Working with the RDC team at Adobe, overseeing the <a href="https://get.adobe.com/reader">get.adobe.com/reader</a> website, a Windows installer ADM, and supporting backend services, with the site attracting around 12 million monthly visitors.</p>
-        <h1>Education</h1>
-        <h2>Indian Institute Of Technology Madras, BTech in Computer Science Engineering</h2>
-        <ul>
-        <li>2018 – 2022</li>
-        <li>GPA: 8.32/10</li>
-        </ul>
-        <h1>Technologies</h1>
-        <ul>
-        <li>Backend Development: Java, Spring‐Boot, Dockers, Kubernetes</li>
-        <li>Frontend Development: HTML, CSS, JavaScript, Typescript, React, Redux</li>
-        <li>Others: C, C++, Python, SQL, SPL, Cuda</li>
-        </ul>
-        <h1>Achievements</h1>
-        <ul>
-        <li>CodeForces: Rated as Expert with max Rating 1782.</li>
-        <li>JEE Advanced: All India rank 132 among 150,000+ candidates.</li>
-        <li>JEE Mains: All India rank 412 in JEE Mains among 1,200,000+ candidates.</li>
-        </ul>
-        <h1>Experience</h1>
-        <h2>Adobe, Member Of Technical Staff 2</h2>
-        <ul>
-        <li>Feb 2024 – present</li>
-        <li>Banglore India</li>
-        <li>Incorporated PDF ownership flow in ADM, which is estimated to increase MAU for reader by ~1.4M.</li>
-        <li>Supported PM's with various A/B tests on RDC pages to reduce bounce rate on pages and increase installation rate of reader.</li>
-        <li>Created monitering system (Splunk dashboards, alerts) for RDC backend services, which helped track usage and identify major areas of improvements.</li>
-        <li>Enhanced PDFServices Node SDK with watermark functionality.</li>
-        </ul>
-        <h2>Adobe, Member Of Technical Staff 1</h2>
-        <ul>
-        <li>July 2022 – Feb 2024</li>
-        <li>Banglore India</li>
-        <li>Implemented new designs for <a href="https://get.adobe.com/reader/completion">completion</a>, <a href="https://get.adobe.com/reader/licenseform">licenseform</a> pages.</li>
-        <li>Integrated marketing tools like Adobe Analytics, Adobe Target into RDC page.</li>
-        <li>Improved ADM's user interface by integrating React, resulting in a 2% decrease in cancellations.</li>
-        </ul>
-        <h2>Adobe, Product Intern</h2>
-        <ul>
-        <li>May 2021 – July 2021</li>
-        <li>Remote</li>
-        <li>Contributed to HTML Designer which helps in creating HTML templates for document generation.</li>
-        <li>Built support for formatting HTML elements, adding charts to templates through designer.</li>
-        <li>Was offered pre-placement offer at Adobe based on work done during my internship.</li>
-        </ul>
-        <h1>University Projects</h1>
-        <h2><a href="https://github.com/prahladhareddy/BTP_FINAL">Information Flow Analysis On Binaries</a></h2>
-        <ul>
-        <li>Feb 2022 – Apr 2022</li>
-        <li>Created a python script that analyses information flow for the binary provided.</li>
-        <li>We are able to achieve information flow of binaries that dose not contain recursive calls or indirect memory addressing</li>
-        <li>Tools Used: Angr, Python</li>
-        </ul>
-        <h2>Othello Bot</h2>
-        <ul>
-        <li>Sept 2022 – Nov 2022</li>
-        <li>Created an Othello bot that considers Coin parity, Corners captured, Mobility, and Stability to give heuristic weights to each board position.</li>
-        <li>Used Alpha‐Beta pruning and iterative deepening to traverse the game tree.</li>
-        </ul>
-        <h2><a href="https://github.com/prahladhareddy/BetweennessCentrality_DynamicGraph_GPU">Betweenness Centrality Of Graph</a></h2>
-        <ul>
-        <li>Jan 2021 – May 2021</li>
-        <li>Understood and implemented the algorithm for finding betweenness centrality of dynamic graph which is mentioned in this <a href="https://dl.acm.org/doi/10.1145/3392717.3392743">paper</a>. Used CUDA to implement the parallel aspects of the algorithm.</li>
-        <li>We are able to achieve around 2.3 times speedup compared to the non‐parallel algorithm for a graph with 10000 edges.</li>
-        </ul>
-        <h2><a href="https://github.com/prahladhareddy/OS_Project_CompartmentAwarePagetables">Compartment Aware Pagetables</a></h2>
-        <ul>
-        <li>Sept 2020 – Nov 2020</li>
-        <li>Added Compartment aware page‐tables in riscv‐pk(OS) to achieve Data Compartmentalization.</li>
-        </ul>
-    </article>
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <h1>Prahladha Reddy Ramireddy</h1>
+            <div class="subtitle">Senior Software Engineer &middot; Sentient Labs</div>
+            <div class="contact-links">
+                <a href="mailto:prahladhareddy001@gmail.com">prahladhareddy001@gmail.com</a>
+                <span class="contact-sep">|</span>
+                <a href="https://linkedin.com/in/prahladha-reddy-ramireddy" target="_blank" rel="noopener">LinkedIn</a>
+                <span class="contact-sep">|</span>
+                <a href="https://github.com/prahladhareddy" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="resume-links">
+                <a href="/Prahladha_Reddy_Ramireddy_CV.pdf" class="resume-btn" target="_blank" rel="noopener">↓ Resume (PDF)</a>
+            </div>
+        </header>
+
+        <!-- Overview -->
+        <section class="section">
+            <div class="section-title">Overview</div>
+            <p class="overview-text">
+                Software engineer with 4 years of experience building backend systems, LLM infrastructure, and production AI products.
+                Currently at Sentient Labs, building evaluation platforms for voice agents (Eldros.ai), multi-agent reasoning systems,
+                and LLM observability stacks for production AI workloads.
+                Previously at Adobe, shipping features across high-traffic web properties (12M+ monthly visitors) and developer SDKs.
+                IIT Madras CS graduate.
+            </p>
+        </section>
+
+        <!-- Experience -->
+        <section class="section">
+            <div class="section-title">Experience</div>
+
+            <!-- Sentient Labs -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-company">Sentient Labs</div>
+                    <div class="exp-badge">Feb 2025 – Present</div>
+                </div>
+                <div class="exp-role">Senior Software Engineer</div>
+                <div class="exp-meta">Remote</div>
+                <ul class="exp-highlights">
+                    <li>Integrated ROMA &mdash; Sentient Labs' open-source recursive multi-agent reasoning framework &mdash; into Sentient Chat, enabling complex query decomposition, parallel sub-query resolution, and result aggregation for higher-quality responses.</li>
+                    <li>Designed and implemented a jury-of-judges evaluation framework for <a href="https://www.eldros.ai/" target="_blank" rel="noopener">Eldros.ai</a> using DSPy, with multi-model scoring, citation tracking, and automated regression testing for voice agent quality across simulation runs.</li>
+                    <li>Built a custom LLM observability stack to monitor and trace all LLM calls across services, providing latency, cost, and model-level usage breakdowns for cost optimization and reliability monitoring in production.</li>
+                    <li>Built custom simulation pipelines using Temporal that run voice agents through scripted scenarios and verify behavioral correctness against expected outcomes, supporting scheduled execution, retries, and concurrent evaluation runs.</li>
+                    <li>Set up a CDC pipeline using Debezium to stream change events from PostgreSQL into Apache Iceberg tables, enabling near-real-time analytical queries on production data.</li>
+                    <li>Created Metabase dashboards on Iceberg data for live product metrics including DAU, agent query volume, and usage trends, used by the product and leadership teams.</li>
+                </ul>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Adobe MTS -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-company">Adobe</div>
+                    <div class="exp-badge">Jul 2022 – Jan 2025</div>
+                </div>
+                <div class="exp-role">Member of Technical Staff I &rarr; II</div>
+                <div class="exp-meta">Bangalore, India</div>
+                <ul class="exp-highlights">
+                    <li>Incorporated PDF ownership flow in ADM (Adobe Download Manager), estimated to increase monthly active users for Reader by ~1.4M.</li>
+                    <li>Improved ADM's user interface by integrating React, resulting in a 2% decrease in cancellations.</li>
+                    <li>Integrated marketing tools including Adobe Analytics and Adobe Target into RDC pages, enabling A/B testing and personalisation at scale.</li>
+                    <li>Supported PMs with various A/B tests on RDC pages to reduce bounce rate and increase installation rate of Reader.</li>
+                    <li>Implemented new designs for the <a href="https://get.adobe.com/reader/completion" target="_blank" rel="noopener">completion</a> and <a href="https://get.adobe.com/reader/licenseform" target="_blank" rel="noopener">licenseform</a> pages on the <a href="https://get.adobe.com/reader/" target="_blank" rel="noopener">get.adobe.com/reader</a> website serving 12M+ monthly visitors.</li>
+                    <li>Created monitoring system (Splunk dashboards and alerts) for RDC backend services, helping track usage and identify major areas of improvement.</li>
+                    <li>Enhanced PDFServices Node SDK with watermark functionality.</li>
+                </ul>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Adobe Intern -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-company">Adobe</div>
+                    <div class="exp-badge">May 2021 – Jul 2021</div>
+                </div>
+                <div class="exp-role">Product Intern</div>
+                <div class="exp-meta">Remote</div>
+                <ul class="exp-highlights">
+                    <li>Contributed to HTML Designer, a tool for creating HTML templates for document generation.</li>
+                    <li>Built support for formatting HTML elements and adding charts to templates through the designer.</li>
+                    <li>Received a pre-placement offer from Adobe based on internship performance.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+            <div class="section-title">Education</div>
+            <div class="edu-institution">Indian Institute of Technology Madras</div>
+            <div class="edu-degree">BTech in Computer Science Engineering</div>
+            <div class="edu-meta">2018 &ndash; 2022 &middot; Chennai, India</div>
+            <ul class="edu-highlights">
+                <li>GPA: 8.32 / 10</li>
+            </ul>
+        </section>
+
+        <!-- Skills -->
+        <section class="section">
+            <div class="section-title">Skills</div>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <div class="skill-group-label">Languages</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-label">AI &amp; LLM</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">DSPy</span>
+                        <span class="skill-tag">GEPA</span>
+                        <span class="skill-tag">OpenAI API</span>
+                        <span class="skill-tag">CUDA</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-label">Backend &amp; Infrastructure</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Temporal</span>
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-label">Data &amp; Observability</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">PySpark</span>
+                        <span class="skill-tag">Debezium</span>
+                        <span class="skill-tag">Apache Iceberg</span>
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Splunk</span>
+                        <span class="skill-tag">Metabase</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-label">Frontend</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Redux</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements -->
+        <section class="section">
+            <div class="section-title">Achievements</div>
+            <div class="achievements-list">
+                <div class="achievement">
+                    <div class="achievement-label">CodeForces</div>
+                    <div class="achievement-desc">Rated Expert with max rating 1782. <a href="https://codeforces.com/profile/prahladhareddyramireddy" target="_blank" rel="noopener" style="color: var(--primary);">Profile</a></div>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-label">JEE Advanced</div>
+                    <div class="achievement-desc">All India Rank 132 among 150,000+ candidates.</div>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-label">JEE Mains</div>
+                    <div class="achievement-desc">All India Rank 412 among 1,200,000+ candidates.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- University Projects -->
+        <section class="section">
+            <div class="section-title">University Projects</div>
+
+            <div class="project-item">
+                <div class="project-name">
+                    <a href="https://github.com/prahladhareddy/BTP_FINAL" target="_blank" rel="noopener">Information Flow Analysis on Binaries</a>
+                </div>
+                <div class="project-date">Feb 2022 – Apr 2022</div>
+                <ul class="project-highlights">
+                    <li>Built a Python script that analyses information flow for a given binary.</li>
+                    <li>Achieved information flow analysis for binaries without recursive calls or indirect memory addressing.</li>
+                    <li>Tools: Angr, Python</li>
+                </ul>
+            </div>
+
+            <hr class="divider">
+
+            <div class="project-item">
+                <div class="project-name">Othello Bot</div>
+                <div class="project-date">Sep 2021 – Nov 2021</div>
+                <ul class="project-highlights">
+                    <li>Built an Othello bot using coin parity, corners captured, mobility, and stability as heuristic weights for board evaluation.</li>
+                    <li>Used Alpha-Beta pruning and iterative deepening to traverse the game tree efficiently.</li>
+                </ul>
+            </div>
+
+            <hr class="divider">
+
+            <div class="project-item">
+                <div class="project-name">
+                    <a href="https://github.com/prahladhareddy/BetweennessCentrality_DynamicGraph_GPU" target="_blank" rel="noopener">Betweenness Centrality of Dynamic Graph (GPU)</a>
+                </div>
+                <div class="project-date">Jan 2021 – May 2021</div>
+                <ul class="project-highlights">
+                    <li>Implemented the algorithm for betweenness centrality of a dynamic graph from a <a href="https://dl.acm.org/doi/10.1145/3392717.3392743" target="_blank" rel="noopener">published paper</a>.</li>
+                    <li>Used CUDA to parallelise the algorithm, achieving ~2.3&times; speedup over the sequential version for a graph with 10,000 edges.</li>
+                </ul>
+            </div>
+
+            <hr class="divider">
+
+            <div class="project-item">
+                <div class="project-name">
+                    <a href="https://github.com/prahladhareddy/OS_Project_CompartmentAwarePagetables" target="_blank" rel="noopener">Compartment Aware Pagetables</a>
+                </div>
+                <div class="project-date">Sep 2020 – Nov 2020</div>
+                <ul class="project-highlights">
+                    <li>Added compartment-aware page-tables in riscv-pk (OS) to achieve data compartmentalisation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="footer">
+            Prahladha Reddy Ramireddy &middot; <a href="mailto:prahladhareddy001@gmail.com" style="color: var(--text-muted);">prahladhareddy001@gmail.com</a>
+        </div>
+
+    </div>
 </body>
 
 </html>
